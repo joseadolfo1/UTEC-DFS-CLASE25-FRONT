@@ -20,6 +20,8 @@ jobs:
       # TODO 2: instala EXACTAMENTE lo que dice package-lock.json (no es "npm install")
       - run: npm ci
 
+      - run: npx prettier@3 --check "src/**/*.{ts,tsx,css}" 
+
       # TODO 3: el script de package.json que revisa los tipos de TypeScript
       - run: npm run test:typecheck
 
