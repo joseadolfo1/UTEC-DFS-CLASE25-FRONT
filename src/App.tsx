@@ -1,27 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
-import { CartProvider } from './context/CartContext'
-import { Navbar } from './components/Navbar'
-import { ProtectedRoute } from './components/ProtectedRoute'
-import { AdminRoute } from './components/AdminRoute'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+import { Navbar } from "./components/Navbar";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AdminRoute } from "./components/AdminRoute";
 
 // Páginas públicas
-import { Home } from './pages/public/Home'
-import { ProductList } from './pages/public/ProductList'
-import { ProductDetail } from './pages/public/ProductDetail'
-import { Login } from './pages/public/Login'
-import { Register } from './pages/public/Register'
+import { Home } from "./pages/public/Home";
+import { ProductList } from "./pages/public/ProductList";
+import { ProductDetail } from "./pages/public/ProductDetail";
+import { Login } from "./pages/public/Login";
+import { Register } from "./pages/public/Register";
 
 // Páginas de usuario autenticado
-import { Cart } from './pages/private/user/Cart'
-import { Checkout } from './pages/private/user/Checkout'
-import { OrderHistory } from './pages/private/user/OrderHistory'
+import { Cart } from "./pages/private/user/Cart";
+import { Checkout } from "./pages/private/user/Checkout";
+import { OrderHistory } from "./pages/private/user/OrderHistory";
 
 // Páginas de administrador
-import { Dashboard } from './pages/private/admin/Dashboard'
-import { ProductManager } from './pages/private/admin/ProductManager'
-import { CategoryManager } from './pages/private/admin/CategoryManager'
-import { OrderManager } from './pages/private/admin/OrderManager'
+import { Dashboard } from "./pages/private/admin/Dashboard";
+import { ProductManager } from "./pages/private/admin/ProductManager";
+import { CategoryManager } from "./pages/private/admin/CategoryManager";
+import { OrderManager } from "./pages/private/admin/OrderManager";
 
 function App() {
   return (
@@ -57,7 +57,7 @@ function App() {
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

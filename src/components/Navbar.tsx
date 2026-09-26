@@ -1,16 +1,16 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { useCart } from '../context/CartContext'
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 
 export function Navbar() {
-  const { user, logout, isAdmin } = useAuth()
-  const { itemCount } = useCart()
-  const navigate = useNavigate()
+  const { user, logout, isAdmin } = useAuth();
+  const { itemCount } = useCart();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout()
-    navigate('/')
-  }
+    logout();
+    navigate("/");
+  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-40">
@@ -22,14 +22,20 @@ export function Navbar() {
 
         {/* Links de navegacion */}
         <div className="flex items-center gap-6">
-          <Link to="/products" className="text-gray-600 hover:text-primary transition-colors">
+          <Link
+            to="/products"
+            className="text-gray-600 hover:text-primary transition-colors"
+          >
             Productos
           </Link>
 
           {user ? (
             <>
               {/* Carrito */}
-              <Link to="/cart" className="relative text-gray-600 hover:text-primary">
+              <Link
+                to="/cart"
+                className="relative text-gray-600 hover:text-primary"
+              >
                 🛒
                 {itemCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -40,14 +46,20 @@ export function Navbar() {
 
               {/* Panel admin */}
               {isAdmin() && (
-                <Link to="/admin" className="text-gray-600 hover:text-primary transition-colors">
+                <Link
+                  to="/admin"
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
                   Admin
                 </Link>
               )}
 
               {/* Info usuario + logout */}
               <div className="flex items-center gap-3">
-                <Link to="/my-orders" className="text-gray-600 hover:text-primary text-sm">
+                <Link
+                  to="/my-orders"
+                  className="text-gray-600 hover:text-primary text-sm"
+                >
                   {user.name}
                 </Link>
                 <button
@@ -60,7 +72,10 @@ export function Navbar() {
             </>
           ) : (
             <div className="flex items-center gap-3">
-              <Link to="/login" className="text-gray-600 hover:text-primary transition-colors">
+              <Link
+                to="/login"
+                className="text-gray-600 hover:text-primary transition-colors"
+              >
                 Ingresar
               </Link>
               <Link
@@ -74,5 +89,5 @@ export function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
