@@ -1,0 +1,30 @@
+# =====================================================================
+# Extra 3 - Pipeline del FRONTEND
+# Destino: .github/workflows/ci.yml  (en el repositorio shopeasy-frontend)
+# Completa los 4 TODO. Solucion en ../final/ci-frontend.yml
+# =====================================================================
+on: push
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # TODO 1: version LTS de Node (la misma que usas tu) y cache de npm
+          node-version: '20.18.0'
+          cache: npm
+
+      # TODO 2: instala EXACTAMENTE lo que dice package-lock.json (no es "npm install")
+      - run: npm ci
+
+      # TODO 3: el script de package.json que revisa los tipos de TypeScript
+      - run: npm run test:typecheck
+
+      # Corre las pruebas una sola vez (sin modo watch)
+      - run: npm test
+
+      # TODO 4: el script que genera dist/. En la clase 27, Vercel ejecuta este mismo comando.
+      - run: npm run build
